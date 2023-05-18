@@ -1,4 +1,5 @@
 import http from 'k6/http';
+import config from '../config.js';
 
 const generateRandomString = (myLength) => {
     const chars =
@@ -15,7 +16,7 @@ const generateRandomString = (myLength) => {
 export default function () {
     const id = generateRandomString(20);
     const email = `luffy-${id}@qa.com.br`;
-    const url = 'https://serverest.dev/usuarios';
+    const url = `${config.SERVEREST_URL}/usuarios`;
     const payload = JSON.stringify({
         nome: "Monkey D. Luffy",
         email: email,
@@ -26,7 +27,7 @@ export default function () {
     const params = {
         headers: {
             'Content-Type': 'application/json',
-            monitor: false
+            monitor: true
         },
     };
     
