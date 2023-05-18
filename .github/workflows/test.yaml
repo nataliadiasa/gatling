@@ -1,0 +1,20 @@
+name: Execute Load And Spike Tests
+
+on:
+  push:
+
+jobs:
+  build:
+    runs-on: ubuntu-latest
+
+    steps:
+      - uses: actions/checkout@v3
+      
+      - name: Build image
+        run: docker build -t testing --build-arg script=load-test.js .
+
+      - name: Run load test
+        run: docker run testing
+
+      - name: Run spike test test
+        run: docker run -e SCRIPT=spike-test.js testing
