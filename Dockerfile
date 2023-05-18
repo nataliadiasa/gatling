@@ -7,4 +7,4 @@ COPY . /app
 
 CMD ["/bin/sh"]
 
-ENTRYPOINT k6 run /app/$SCRIPT
+ENTRYPOINT k6 run --quiet /app/$SCRIPT

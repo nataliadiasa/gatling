@@ -18,7 +18,7 @@ jobs:
         run: docker build -t testing --build-arg script=load-test.js .
 
       - name: Run load test
-        run: docker run testing
+        run: docker run -e SERVEREST_URL=serverest:3000 testing
 
       - name: Run spike test test
-        run: docker run -e SCRIPT=spike-test.js testing
+        run: docker run -e SERVEREST_URL=serverest:3000 -e SCRIPT=spike-test.js testing
