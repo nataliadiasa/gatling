@@ -1,10 +1,12 @@
 import { check } from 'k6';
 import user from "./user/index.js";
 
-export const config = {
+export const options = {
+    vus: 15,
+    duration: '5s',
     thresholds: {
+        checks: ['rate>0.8'],
         http_req_duration: ['p(95) < 300000'],
-        checks: ['rate > 0.8']
     }
 }
 
