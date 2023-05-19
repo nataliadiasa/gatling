@@ -27,7 +27,7 @@ export default function () {
     const params = {
         headers: {
             'Content-Type': 'application/json',
-            monitor: true
+            'monitor': 'true',
         },
     };
     

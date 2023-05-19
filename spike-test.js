@@ -2,10 +2,11 @@ import scenario from "./scenarios/create-user.js"
 
 export const options = {
     stages: [
-        { duration: '30s', target: 10 },
-        { duration: '5s', target: 100 },
+        { duration: '15s', target: 2 },
+        { duration: '0s', target: 30 },
         { duration: '10s', target: 30 },
         { duration: '10s', target: 10 },
+        { duration: '10s', target: 2 },
     ],
     thresholds: {
         checks: ['rate>0.8'],

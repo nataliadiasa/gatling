@@ -9,15 +9,12 @@ jobs:
 
     steps:
       - uses: actions/checkout@v3
-      
-      - name: Run container
-        run: docker run -p 3001:80 -d ealen/echo-server
 
       - name: Build image
         run: docker build -t testing --build-arg script=load-test.js .
 
       - name: Run load test
-        run: docker run -e SERVEREST_URL=http://localhost:3001 testing
+        run: docker run -e SERVEREST_URL=https://serverest.dev/ testing
 
       - name: Run spike test test
-        run: docker run -e SERVEREST_URL=http://localhost:3001 -e SCRIPT=spike-test.js testing
+        run: docker run -e SERVEREST_URL=https://serverest.dev/ -e SCRIPT=spike-test.js testing

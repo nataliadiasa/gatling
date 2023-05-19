@@ -1,4 +1,4 @@
-import { check } from 'k6';
+import { check, sleep } from 'k6';
 import user from "../user/index.js";
 
 export default function() {
@@ -6,4 +6,6 @@ export default function() {
     check(res, {
         'is status 201': (r) => r.status === 201,
     })
+
+    sleep(1);
 }
